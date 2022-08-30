@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	//int ret=printf("hello,world!");
+	//printf("\n");
+	//printf("%d",ret);
+	//printf("\n %d\n",printf("hello,world!"));
+	//printf("%15d\n",0xABCDEF);
+	//int number=0;
+	//float score_c=0.0;
+	//float score_math=0.0;
+	//float score_eng=0.0;
+	//scanf("%d;%f,%f,%f",&number,&score_c,&score_math,&score_eng);
+	//printf("每一科成绩分别为  NO. %d is %.2f, %.2f, %.2f.\n",number,score_c,score_math,score_eng);
+	//int weight=0;
+	//int height=0;
+	//double bmi=0.0;
+	//scanf("%d%d",&weight,&height);
+	//bmi=weight/((double)height*height/10000);
+	//printf("%.21f\n",bmi);
+	int a=0;
+	int b=0;
+	int c=0;
+    scanf("%d %d %d",&a,&b,&c);
+	float len=a+b+c;
+	float p=(a+b+c)/2.0;
+	float arae=sqrt(p*(p-a)*(p-b)*(p-c));
+	printf("该三角形的周长为=%.2f  ,面积为=%.2f\n",len,arae);
+	
+	return 0;
+}
