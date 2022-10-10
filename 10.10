@@ -1,0 +1,68 @@
+#include<stdio.h> 
+
+int main() 
+{
+	//printf("Hello World!\n");
+	//printf("*****\n");
+	//printf(" *****\n");
+	//printf("  *****\n");
+	//printf("   *****\n");
+	//int a,b,c;  //定义变量a,b,c
+	//printf("请分别输入a,b,c三个数的数值:\n");
+	//scanf("%d %d %d",&a,&b,&c);
+	//printf("a,b,c这三个数的数值分别为：%d %d %d\n",a,b,c);
+	//if(a>b)
+	//{
+	//	if(b>c)
+	//{
+	//  printf("三者中最大值为：%d\n",a);
+	//    }
+	//	else
+	//	{
+	//		printf("三者中最大值：%d\n",a);
+	//	}
+	//}
+	//else if(a<b)
+	//{
+	//	if(a>c)
+	//	{
+	//		printf("三者中最大值为：%d\n",b);
+	//	}
+	//	else
+	//	{
+	//		printf("三者中最大值为：%d\n",b);
+	//	}
+	//}
+	//else
+	//{
+	//	if(b>c)
+	//	{
+	//		printf("三者中最大值为：%d\n",a);
+	//	}
+	//	else if(b<c)
+	//	{
+	//		printf("三者中最大值为：%d\n",c);
+	//	}
+	//	else
+	//	{
+	//		printf("三个数相等！\n");
+	//	}
+	//}
+	//int n;//定义变量n
+    //scanf("%d",&n);
+	//if(n%3==0&&n%5==0)
+	//{
+	//	printf("这个能够同时被3和5除尽的数值为：%d\n",n);
+	//}
+	//else
+	//{
+	//	printf("这个数值不能同时被3和5除尽\n");
+	//}
+	
+	
+	
+	
+	
+	
+	return 0;
+}
