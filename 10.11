@@ -1,0 +1,44 @@
+//#include<stdio.h>
+//#include<windows.h>
+//#include<math.h>
+//#include<stdio.h>
+
+int main()
+{
+	//int iSignal;//定义变量表示信号灯的状态
+	//printf("红灯是0，绿灯是1\n");//输出提示信息
+	//scanf("%d",&iSignal);//输入iSignal变量
+	//if(iSignal==1)//使用if语句进行判断
+	//{
+	//	printf("绿灯，车辆可以通过\n");//判断结果为真时输出 
+	//} 
+	//if(iSignal==0)//使用if语句进行判断
+	//{
+	//	printf("红灯，车俩不可通过\n");//判断结果为真时输出 
+	//} 
+	//for(float y=1.5f;y>-1.5f;y-=0.1f)
+	//{
+	//	for(float x=-1.5f;x<1.5f;x+=0.05f)
+	//	{
+	//		float a=x*x+y*y-1;
+	//		putchar(a*a*a-x*x*y**y*y<0.0f?'*':' ');
+	//	}
+	//	Sleep(100);
+	//	putchar('\n');
+	//}
+	//getchar();
+	float x,y,a;
+	for(y=1.5;y>-1.5;y-=0.1)
+	{
+		for(x=-1.5;x<1.5;x+=0.05)
+		{
+			a=x*x+y*y-1;
+			putchar(a*a*a-x*x*y*y*y<=0.0?'*':' ');
+		}
+		system("color 04");
+		putchar('\n');
+	}
+	
+	getchar();
+	return 0;
+}
