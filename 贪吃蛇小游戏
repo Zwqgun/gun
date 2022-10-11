@@ -1,0 +1,235 @@
+#include<stdio.h> 
+#include<stdlib.h>
+#include<conio.h>
+#include<windows.h>
+#include<time.h>
+#define HEIGHT 25//总的画面尺寸大小
+#define WIDTH 50
+#define start_length 4//蛇身初始长度
+//全局变量的定义
+
+int canvas [HEIGHT][WIDTH]={0};//二维数组记录游戏画面中对应元素，二维数组建立坐标系
+                              //0输出空格，-1输出边框#，1输出蛇头@，>1输出蛇身*，-2输出食物$
+int score;
+int restart;//重开变量
+int move_Direction;//小蛇移动方向，1234分别对应上下左右
+int newHead_i,newHead_j;//蛇头的移动后的新位置
+int food_i,food_j;
+
+void HideCursor()//隐藏光标的函数的定义
+{
+	CONSOLE_CURSOR_INFO cursor_info = {1,0};
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE),&cursor_info);
+} 
+
+void gotoxy(int x,int y)//用以清屏的函数的定义
+{
+	COORD pos = {x,y};
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(handle,pos);
+}
+
+void startup()//游戏数据初始化
+{
+	HideCursor();
+	int i,j;//初始化食物的位置
+	food_i=rand()%(HEIGHT-5)+2;
+	food_j=rand()%(WIDTH-5)+2;
+	canvas[food_i][food_j]=-2;//初始化边框
+	for(i=0;i<HEIGHT;i++) 
+	{
+		canvas[i][0]=-1;
+		canvas[i][WIDTH-1]=-1;
+	}
+	for(j=0;j<WIDTH;j++)
+	{
+		canvas[0][j]=-1;
+		canvas[HEIGHT-1][j]=-1;
+	}
+	//初始化蛇头蛇身
+	canvas[HEIGHT/2][WIDTH/2]=1;
+	for(i=1;i<=start_length;i++)
+	canvas[HEIGHT/2][WIDTH/2-i]=i+1;//从右往左生成蛇身
+	
+	score=0;
+	restart=0;
+	
+	move_Direction=4;//初始时往右移动 
+} 
+
+void moveSnake_ByDirection() //控制小蛇移动
+{
+	int max=0;
+	int i,j;
+	int oldTail_i,oldTail_j;//记录旧的蛇尾位置
+	int oldHead_i,oldHead_j;//记录旧的蛇头位置
+	
+	for(i=1;i<HEIGHT-1;i++) //不包括边框
+	{
+		for(j=1;j<WIDTH-1;j++)
+		{
+			if(canvas[i][j]>0)
+			{
+				//对所有大于0的元素加 1
+				canvas[i][j]++;
+				if(max<canvas[i][j])
+				{
+					//记录最大值所在位置(旧的蛇尾位置) 
+					max=canvas[i][j];
+					oldTail_i=i;
+					oldTail_j=j;
+				}
+				
+				if(canvas[i][j]==2)
+				{
+					//记录最小值所在位置（旧的蛇头位置）
+					oldHead_i=i;
+					oldHead_j=j; 
+				} 
+			}
+		} 
+		
+	}
+	
+	if(move_Direction==1)
+	{
+		newHead_j=oldHead_j;//新的蛇头位置定位
+		newHead_i=oldHead_i-1; 
+	} 
+	if(move_Direction==2)
+	{
+		newHead_j=oldHead_j;//新的蛇头位置定位
+		newHead_i=oldHead_i+1; 
+	}
+	if(move_Direction==3)
+	{
+		newHead_j=oldHead_j-1;//新的蛇头位置定位
+		newHead_i=oldHead_i; 
+	}
+	if(move_Direction==4) 
+	{
+		newHead_j=oldHead_j+1;//新的蛇头位置定位
+		newHead_i=oldHead_i; 
+	}
+	//判断小蛇新蛇头是否碰到食物
+	if(canvas[newHead_i][newHead_j]==-2)
+	{
+		//食物重新生成 
+		canvas[food_i][food_j]=0;
+		food_i=rand()%(HEIGHT-5)+2;
+		food_j=rand()%(WIDTH-5)+2;
+		canvas[food_i][food_j]=-2;
+		//吃到食物，最大值不用变为0，使得蛇身长度+1
+		//得分+1
+		score++;
+		 
+	}
+	else
+	{
+		//没吃到食物时蛇身长度不变
+		canvas[oldTail_i][oldTail_j]=0;//最大值所在元素变为0 
+	} 
+	
+	//新蛇头赋值改到下面语句里，为了判断新蛇头位置是否已经是蛇身的位置
+	//小蛇碰到自身或边框游戏失败 
+	if(canvas[newHead_i][newHead_j]>0||canvas[newHead_i][newHead_j]==-1)
+	{
+		int k;
+		printf("游戏结束！\n是否重来？是or否(连按两下)\n");//相撞则失败，看看是否需要重来
+		system("pause");
+		k=getch();
+		if(k=='y')
+		     restart=1;
+		else
+		     exit(0); 
+	} 
+	else//未相撞则继续前进
+	{
+		canvas[newHead_i][newHead_j]=1;
+	}
+	 
+}
+
+void show()
+{
+	gotoxy(0,0);
+	
+	int i,j;
+	for(i=0;i<HEIGHT;i++)
+	{
+		for(j=0;j<WIDTH;j++)
+		{
+			if(canvas[i][j]==-1)
+			printf("#");//输出边框
+			else if(canvas[i][j]==1)
+			printf("@");//输出蛇头
+			else if(canvas[i][j]>1)
+			printf("*");//输出蛇身
+			else if(canvas[i][j]==0)
+			printf(" ");
+			else if(canvas[i][j]==-2)
+			printf("$");//输出食物 
+		}
+		printf("\n"); 
+	}
+	printf("\n");
+	printf("得分：%d ",score);
+	Sleep(50);
+}
+
+void updateWithoutIn()
+{
+	moveSnake_ByDirection();//小蛇移动相关 
+} 
+
+void updateWithIn()
+{
+	      char input;
+	if(kbhit())//当用户按下键时执行
+	{
+		input=getch();//要记得加蛇头不会反噬蛇身的限制
+		if(input=='w'&&(canvas[newHead_i-1][newHead_j]==0))
+		    move_Direction=1;
+		if(input=='s'&&(canvas[newHead_i+1][newHead_j]==0))
+		    move_Direction=2;
+		if(input=='a'&&(canvas[newHead_i][newHead_j-1]==0))
+		    move_Direction=3;
+		if(input=='d'&&(canvas[newHead_i][newHead_j+1]==0))
+		    move_Direction=4;
+		if(input==27)
+		{system("pause");}
+		if(input=='r')
+		{restart=1;}
+	} 
+} 
+
+int main()
+{
+	int i,j;
+	flag:
+	startup();//游戏数据初始化
+	while(1)//游戏状态刷新
+	{
+		show();//显示画面
+		updateWithoutIn();//与用户输入无关的更新
+		updateWithIn();//与用户输入有关的更新
+		if(restart==1)//是否重新游戏的判断
+		{
+			restart=0;
+			for(i=0;i<HEIGHT;i++) 
+			{
+				for(j=0;j<WIDTH;j++)
+				{
+					if(canvas[i][j]!=0)
+					{
+						canvas[i][j]=0;
+					}
+				}
+			}
+			system("cls");//清除失败后的选项文字
+			goto flag; 
+		} 
+	} 
+	
+	system("pause");
+}
