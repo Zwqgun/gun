@@ -1,0 +1,157 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<windows.h>
+#include<time.h>
+//全局变量的定义
+int position_x,position_y;//飞机坐标位置
+int height,width;//游戏画面尺寸
+int bullet_x,bullet_y;//子弹坐标位置
+int enemy_x,enemy_y;//敌人坐标位置
+int score;//游戏得分
+int enemy_speed_limit;//下落速度的控制变量
+int bullet_speed;//子弹速度的控制变量
+
+void HideCursor() //隐藏光标的函数的定义
+{
+	CONSOLE_CURSOR_INFO cursor_info={1,0};
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE),&cursor_info);
+}
+
+void gotoxy(int x,int y)//用以清屏的函数的定义
+{
+	COORD pos={x,y};
+	HANDLE handle=GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(handle,pos); 
+} 
+
+void startup() //游戏数据初始化
+{
+	height=28;
+	width=50;//控制画面尺寸
+	
+	position_x=width/2;
+	position_y=height/2;
+	
+	bullet_y=-1;
+	bullet_x=position_x;
+	bullet_speed=1;
+	
+	enemy_x=width/2;
+	enemy_y=0;
+	enemy_speed_limit=5;
+	
+	score=0;
+	
+	HideCursor();//隐藏光标
+	 
+} 
+
+void show()//显示画面
+{
+	int i,j;
+	int m,n;
+	
+	gotoxy(0,0);//使用光标移动到(x,y)的位置
+	
+	for(i=0;i<height;i++)
+	{
+		for(j=0;j<width;j++)
+		{
+			if((i==position_y)&&(j==position_x))
+			   printf("*");
+			//输出飞机
+			else if((i==bullet_y)&&(j==bullet_x))
+			   printf("|");
+			//输出子弹
+			else if((i==enemy_y)&&(j==enemy_x))
+			   printf("#");
+			//输出敌人
+			else if(j==width-1) //输出右边界
+			   printf("@");
+			else if(i==height-1) //输出下边界
+			   printf("@");
+			else 
+			   printf(" "); 
+		}
+		
+		printf("\n");
+	}
+	printf("\n");
+	printf("得分：%d",score);
+	 
+} 
+
+void updateWithoutIn()//与用户输入无关的更新（子弹、敌人）
+{
+	static int last_enemy_y;
+	if((bullet_x==enemy_x)&&(enemy_y>=bullet_y)&&(last_enemy_y<bullet_y)) //击中敌人的响应
+	{
+		score++;
+		enemy_y=0;//让下一个敌人从最顶端下落
+		bullet_y=-1;//重置子弹
+		enemy_x=rand()%width;//让下一个敌人随机x坐标位置下落 
+	}
+	
+	static int speed=0;//静态变量，speed其实是已循环轮数
+	if(speed<enemy_speed_limit) //减缓敌人下落速度
+	     speed++;
+		 
+	if(bullet_y>-1) 
+	     bullet_y-=bullet_speed;//子弹向上飞行（速度可控）
+		 
+	if(enemy_y==height)
+	{
+		enemy_y=0;//敌人反复落下
+		enemy_x=rand()%width;//随机x坐标位置落下 
+	}
+	else
+	{
+		if(speed==enemy_speed_limit)
+		{
+			last_enemy_y=enemy_y;
+			enemy_y++;//敌人下落
+			speed=0;//别忘了将speed重置为0，不然无法实现减缓效果 
+		}
+	} 
+}
+
+void updateWithIn() //与用户输入有关的更新（针对于飞机）
+{
+	
+	char input;
+	if(kbhit())//当用户按下按键时才执行
+	{
+		input=getch();
+		if(input=='a')
+		   position_x--;
+		if(input=='d')
+		   position_x++;
+		if(input=='w')
+		   position_y--;
+		if(input=='s')
+		   position_y++;
+		if(input==' ')
+		{
+			bullet_y=position_y-1;//子弹从飞机头部上一行发射
+			bullet_x=position_x;//让子弹始终从飞机头部发射，也就是飞机左右以移动时子弹x坐标也会跟随变化 
+		}
+		if(input==27)
+		    system("pause");//按ESC键暂停游戏 
+	} 
+}
+
+int main()
+{
+	startup();//游戏数据初始化
+	
+	while(1)//游戏状态刷新
+	{
+		show();//显示画面
+		updateWithoutIn();//与用户输入无关的更新
+		updateWithIn();//与用户输入有关的更新
+		 
+	}
+	
+	system("pause"); 
+} 
