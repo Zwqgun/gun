@@ -1,0 +1,40 @@
+#include<stdio.h> 
+
+int main()
+{
+	//int i[5],index,temp;
+	//定义数组及变量为基本整型
+	//printf("请输入一组数字:\n");
+	
+	//for(index=0;index<5;index++)//逐个输入数组元素 
+	//{
+	//	scanf("%d",&i[index]);
+	//}
+	
+	//printf("初始的数组为：\n");
+	
+	//for(index=0;index<5;index++)//显示数组中的元素 
+	//{
+	//	printf("%d",i[index]);
+	//}
+	//printf("\n");
+	
+	//for(index=0;index<2;index++)//将数组中的元素的前后位置互换
+	//{
+	//	temp=i[index];//元素位置互换的过程借助中间变量temp
+	//	i[index]=i[4-index];
+	//	i[4-index]=temp; 
+	//} 
+	//printf("现在的数组为：\n");
+	
+	//for(index=0;index<5;index++) //将转换后的数组再次输出
+	//{
+	//	printf("%d",i[index]); 
+	//}
+	//printf("\n");
+	
+	
+	
+	 
+	return 0;
+}
