@@ -1,0 +1,59 @@
+#include<stdio.h> 
+#include<windows.h>
+
+int main()
+{
+	int i,j;//表示棋盘横纵坐标 
+	int qipan[20][20];
+	int color=0;//0代表黑圈（圆圈），1表示白棋
+	int iTemp=0,jTemp=0,countTemp=0; 
+	int colorFlag=0;
+	char op;
+	
+again:
+	
+	for(i=0;i<20;i++)
+	  for(j=0;j<20;j++)
+	     qipan[i][j]=2;
+	     
+	while(1)
+	{
+		printf("请输入棋子的位置(棋盘大小为20*20)，如2，2：");
+		scanf("%d,%d",&i,&j);
+		
+		if(i<1||i>20||j<1||j>20)
+		{
+			printf("输入的位置超出了棋盘的范围，请重新输入！\n");
+			continue;
+		}
+		
+		if((2!=qipan[i-1][j-1]))
+		{
+			printf("提示：该位置已有棋子了！\n");
+			fflush(stdin);
+			continue;
+		}
+		
+		color=(color+1)%2;//获取棋盘棋子属性
+		qipan[i-1][j-1]=color;//将该位置棋子属性给棋盘
+		
+		//根据棋盘对应位置属性，绘制最新状态的棋盘，一行行绘制，边缘特别处理
+		for(i=1;i<20;i++) 
+		{
+			//第一行
+			if(i==1) 
+			{
+				//第一列
+				if(qipan[i-1][o]==1)
+				printf("●");
+				if(qipan[i-1][0]==0)
+				printf("○");
+				if(qipan[i-1][0]==2)
+				printf("") 
+			}
+		}
+	}
+	 
+	
+	return 0;
+}
