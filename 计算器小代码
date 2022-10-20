@@ -1,0 +1,131 @@
+#include<stdio.h>
+#include<string.h>
+
+//打印菜单界面
+void menu()
+{
+	printf("***********************\n");
+	printf("*****1.加法 2.减法*****\n");
+	printf("*****3.乘法 4.除法*****\n");
+    printf("*****    0.退出   *****\n");
+    printf("***********************\n");
+} 
+
+//定义加法函数
+int jia(int iNumbera,int iNumberb)
+{
+	int iResult1;//定义一个整型变量，用来储存返回的结果
+	iResult1=iNumbera+iNumberb;//进行加法运算，得到计算结果 
+	return  iResult1;
+} 
+
+//定义减法函数 
+int jian(int iNumbera,int iNumberb)
+{
+	int iResult2;//定义一个整型变量，用来储存返回的结果
+	iResult2=iNumbera-iNumberb;//进行减法运算，得到计算结果 
+	return  iResult2;
+}
+//定义乘法函数
+int cheng(int iNumbera,int iNumberb)
+{
+	int iResult3;//定义一个整型变量，用来储存返回的结果
+	iResult3=iNumbera*iNumberb;//进行乘法运算，得到计算结果 
+	return  iResult3;
+} 
+
+//定义input函数
+//int input(input1,input2,input3,input4)
+//{
+//	int jia;
+//	int jian;
+//	int cheng;
+//	int chu;
+//	int input=0;
+//	input1=jia;
+//	if(input==1)
+//	{
+		
+//		printf("进行加法运算\n"); 
+//	}
+//	else if(input==2)
+//	{
+//		printf("进行减法运算\n");
+//	}
+//	else if(input==3) 
+//	{
+//		printf("进行乘法运算\n");
+//	}
+//	else if(input==4)
+//	{
+//		printf("进行除法运算\n");
+//	}
+//	else
+//	{
+//		printf("结束运算！\n");
+//	}
+//} 
+
+//定义除法函数
+int chu(int iNumbera,int iNumberb)
+{
+	int iResult4;//定义一个整型变量，用来储存返回的结果
+	iResult4=iNumbera/iNumberb;//进行除法运算，得到计算结果 
+	return  iResult4;
+} 
+
+//主函数
+int main() 
+{
+	//int jia;
+	//int jian;
+	//int cheng;
+	//int chu;
+	int input=0;
+	int iNumbera=0;
+	int iNumberb=0;
+	int ret=0;
+	//printf("请输入两个实数:");
+	//scanf("%d %d",&iNumbera,&iNumberb);
+	//printf("你输入的两个实数分别为：%d %d\n",iNumbera,iNumberb);
+	do
+    {
+		menu();//调用munu函数 
+		printf("请选择运算法则：");
+		scanf("%d",&input);
+		
+		switch(input)
+		{
+			case 1:
+			  printf("请输入两个实数：");
+			  scanf("%d %d",&iNumbera,&iNumberb);
+			  ret=jia(iNumbera,iNumberb);
+			  printf("两数相加为：%d\n",ret);			 
+			  break;
+			case 2:
+			  printf("请输入两个实数：");
+			  scanf("%d %d",&iNumbera,&iNumberb);
+			  ret=jian(iNumbera,iNumberb);
+			  printf("两数相减为:%d\n",ret);
+			  break;
+			case 3:
+			  printf("请输入两个实数：");
+			  scanf("%d %d",&iNumbera,&iNumberb);
+			  ret=cheng(iNumbera,iNumberb);
+			  printf("两数相乘为:%d\n",ret);
+			  break;
+			case 4:
+			  printf("请输入两个实数：");
+			  scanf("%d %d",&iNumbera,&iNumberb);
+			  ret=chu(iNumbera,iNumberb);	
+			  printf("两数相除为:%d\n",ret);break;
+			
+			case 0:printf("结束运算！\n");break;
+			default:
+			printf("输入错误！请重新选择运算法则！"); 
+		}
+		 
+	}
+	while(input); 
+	return 0;
+}
