@@ -1,0 +1,168 @@
+#include<stdio.h>
+
+//求分段函数
+/* 
+int main()
+{
+	int x;
+	int y;
+	printf("请输入x的数值:");
+	scanf("%d",&x);
+	printf("x的数值为：%d\n",x);
+	if(x<1) 
+	{
+		y=x;
+		printf("y=%d",y);
+	}
+	else if(x<6)
+	{
+		y=3*x+1;
+		printf("y=%d",y);
+	}
+	else
+	{
+		y=3*x-1;
+		printf("y=%d",y);
+	}
+	return 0;
+}*/
+
+//求三个数值的最大值
+/*int main()
+{
+	int a,b,c;
+	printf("请输入三个大小不一的数值:");
+	scanf("%d %d %d",&a,&b,&c);
+	printf("您输入的三个数值分别为：%d %d %d\n",a,b,c);
+	if(a>b)
+	{
+		if(a>c)
+		{
+			printf("三者中最大值:%d\n",a);
+		}
+		else
+		{
+			printf("三者中最大值:%d\n",c);
+		}
+	}
+	else
+	{
+		if(b>c)
+		{
+			printf("三者中最大值:%d\n",b);
+		}
+		else
+		{
+			printf("三者中最大值:%d\n",c);
+		}
+	}
+	return 0;
+}*/
+
+//设计一个建议的加减乘除计算器
+/*int main()
+{
+	menu();
+	int x,y;
+	int input=0;
+	int sum=0; 
+	do
+	{
+		//menu();
+		printf("请选择运算法则:");
+	    scanf("%d",&input);
+		switch(input)
+		{
+			case 1:printf("请分别输入要运算的两个数值：");
+			       scanf("%d %d",&x,&y);
+			       sum=jia(x,y);
+				   printf("这两个数相加的结果为：%d\n",sum);
+				   break; 
+			case 2:printf("请分别输入要运算的两个数值：");
+			       scanf("%d %d",&x,&y);
+			       sum=jian(x,y);
+				   printf("这两个数相减的结果为：%d\n",sum);
+				   break; 
+			case 3:printf("请分别输入要运算的两个数值：");
+			       scanf("%d %d",&x,&y);
+			       sum=cheng(x,y);
+				   printf("这两个数相加乘的结果为：%d\n",sum);
+				   break;
+			case 4:printf("请分别输入要运算的两个数值：");
+			       scanf("%d %d",&x,&y);
+			       sum=chu(x,y);
+				   printf("这两个数相除的结果为：%d\n",sum);
+				   break;
+			case 0:printf("退出运算！\n");
+			       break;
+		    default:printf("错误！请重新选择运算法则！\n");
+			        break;	   
+		}
+		
+	}
+	while(input);
+	return 0;
+} 
+
+
+//定义菜单函数
+void menu()
+{
+	printf("*****************************\n");
+	printf("*****1.加法*******2.除法*****\n");
+	printf("*****3.乘法*******4.除法*****\n");
+	printf("************0.退出***********\n");
+	printf("*****************************\n");
+}
+
+//定义加法函数
+int jia(x,y) 
+{
+	return x+y; 
+}
+
+//定义减法函数
+int jian(x,y) 
+{
+	return x-y;
+}
+
+//定义乘法函数
+int cheng(x,y)
+{
+	return x*y;
+}
+
+//定义除法函数
+int chu(x,y)
+{
+	return x/y;
+}*/
+
+//计算星期
+int main()
+{
+    int year, month, day;
+    while (scanf("%d %d %d", &year, &month, &day) != EOF)
+    {
+        if (month == 1 || month == 2)//判断month是否为1或2　
+        year--, month += 12;
+        int c = year / 100;
+        int y = year - c * 100;
+        int week = y + y / 4 + c / 4 - 2 * c + 26 * (month + 1) / 10 + day - 1;
+        while (week < 0)
+        week += 7;
+        week %= 7;
+    switch (week)
+    {
+        case 1:printf("Monday\n"); break;
+        case 2:printf("Tuesday\n"); break;
+        case 3:printf("Wednesday\n"); break;
+        case 4:printf("Thursday\n"); break;
+        case 5:printf("Friday\n"); break;
+        case 6:printf("Saturday\n"); break;
+        case 0:printf("Sunday\n"); break;
+  }
+ }
+ return 0;
+} 
