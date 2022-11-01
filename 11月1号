@@ -1,0 +1,86 @@
+#include<stdio.h>
+int main()
+{
+	//int*p;
+	//int*q;
+	//int a;
+	//int b;
+	//p=&a;
+	//q=&b;
+	//printf("请输入a，b的数值：\n"); 
+	//scanf("%d %d",&a,&b);
+	//printf("p,q的值分别为：%d %d\n",*p,*q); 
+	//int a=0;
+	//while(a<9)
+	//{
+	//	++a;
+	//}
+	//printf("%d,%d,%d",a,++a,a++);
+	//char c;
+	//int i;
+	//for(i=0;i<2;i++)
+	//{
+	//	scanf("%c",&c);
+	///printf("%c",c);
+	//}
+	//char a='a';
+	//while(a<'y')
+	//{
+	//	do
+	//	{
+	//		a++;
+	//	}while(a<'A');
+	//}
+	//printf("%c",a);
+	//int k=1;
+	//while(k=1)
+	//{
+	//	k++;
+	//}
+	
+	//求和等比或等差数列
+	//int i=1;
+	//float sum=0;
+	//float a;
+	//for(i=1;i<=20;i++) 
+	//{
+	//	a=1.0/(5*i);
+	//	sum+=a;
+	//} 
+    //printf("%f",sum);
+	
+	//求十个数字的最大值
+	//int a[10];
+	//int max;
+	//int i=0;
+	//for(i=0;i<10;i++)
+	//{	printf("请随机输入十个数值：");
+    //   scanf("%d",&a[i]);
+	//    printf("您输入的十个数值分别为：%d\n",a[i]);
+	//	if(a[i]>max)
+	//	{
+	//		max=a[i];
+	//	}
+    //}
+    //printf("您输入的十个数字的最大值为：%d",max);
+    
+    //输入一行字符
+	// int ch,num,blank,ponc;
+	// char c;
+	// scanf("%c",&c);
+	// while(c!='n')
+	// {
+	// 	if(c>='0'&&c<='9')
+	// 	   num++;
+	// 	else if((c>='A'&&c<='Z')||(c>='a'&&c<='z'))
+	// 	   ch++;
+	// 	else if(c==' ')
+	// 	   blank++;
+	// 	else 
+	// 	   ponc++;
+	// 	   scanf("%c",&c);
+	//  } 
+	//  printf("%d个数字\n%d个字母\n%d个空格\n%d个其他字符",num,ch,blank,ponc);
+	
+	return 0;
+} 
