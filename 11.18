@@ -1,0 +1,88 @@
+#include<stdio.h>
+//5#include<windows.h>
+/*int main()
+{
+	int c;//定义c变量为行数
+	int r;//定义r变量为第c行的第r个
+	int i;//获取用户输入的打印行数 
+	printf("请输入您要打印的行数：");
+	scanf("%d",&i);
+	for(c=1;c<=i;c++)
+	{
+		for(r=1;r<=i;r++)
+		printf(""); 
+		for(r=1;r<=c;r++)
+		printf("*");
+		printf("\n");
+	}
+	system("pause"); 
+	return 0;
+ }*/ 
+ 
+/*int main()
+ {
+ 	char a;
+ 	printf("%s",a);
+ 	int number=0;//统计数字 
+ 	int Char=0;//统计字符 
+ 	int Konge=0;//统计空格 
+ 	int Otherchar=0;//统计其他字符
+	while((a=getchar())!='\n')
+	{
+ 	   if(a>='a'&&a<='z'||a>='A'&&a<='Z')
+	{
+	 	Char++;
+	}
+	   else if(a>='0'&&a<='9') 
+	{
+		number++;
+	}
+ 	   else if(a==' ')
+ 	{
+ 		Konge++;
+	}
+	   else
+	{
+		Otherchar++;
+	}
+}
+	printf("该字符串有%d个字符\n%d个数字\n%d个空格\n%d个其它字符",Char,number,Konge,Otherchar);
+ 	system("pause");
+ 	return 0;
+}*/
+
+/*int main()
+{
+	int i,j;
+	int a[10];
+	int temp;
+	int pos;
+	printf("请为数组赋值：\n");
+	for(i=0;i<10;i++)
+	{
+		printf("a[%d]=",i);
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<9;i++)
+	{
+		temp=a[i];
+		pos=i;
+		for(j=i+1;j<10;j++)
+		{
+			if(a[j]<temp)
+			{
+				temp=a[j];
+				pos=j;
+			}
+		}
+		a[pos]=a[i];
+		a[i]=temp;
+	}
+	for(i=0;i<10;i++)
+	{
+		printf("%d\t",a[i]);
+		if(i==4)
+		printf("\n");
+	}
+	return 0;
+}*/
