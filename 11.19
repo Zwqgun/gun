@@ -1,0 +1,131 @@
+#include<stdio.h>
+
+int main()
+{
+	//一维数组与指针 
+	/*int *p;
+	int *q;
+	int a[5];
+	int b[5];
+	int i;
+	p=&a[0];
+	q=b;
+	printf("请输入一串数组a；\n");
+	for(i=0;i<5;i++)
+		scanf("%d",&a[i]);
+	    printf("请输入一串数组b:\n");
+	for(i=0;i<5;i++)
+		scanf("%d",&b[i]);
+	    printf("数组a为:\n");
+	for(i=0;i<5;i++)
+		printf("%5d",*(p+i));
+		printf("\n");
+		printf("数组b为:\n");
+	for(i=0;i<5;i++)
+		printf("%5d",*(q+i));
+		printf("\n");*/
+	
+	//二维数组与指针
+	/*int a[3][5],i,j;
+	printf("please input:\n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			scanf("%d",a[i]+j);
+		}
+	} 
+	printf("the array is:\n");
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			printf("%5d",*(a[i]+j));
+		}
+		printf("\n");
+	}*/
+	
+	//字符串与指针
+	//char *string="Hello World!";
+	//printf("%s",string); 
+	//char str1[]="You are beautiful!",str2[30],*p1,*p2;
+	//p1=str1;
+	//p2=str2;
+	//while(*p1!='\0')
+	//{
+	//	*p2=*p1;
+	//	p1++;
+	//	p2++;
+	//}
+	//*p2='\0';
+	//printf("Now the string2 is:\n");
+	//puts(str2);
+	
+	//字符串数组
+	/*int i;
+	char *month[]=
+	{
+		"一月",
+		"二月",
+		"三月",
+		"四月",
+		"五月",
+		"六月",
+		"七月",
+		"八月",
+		"九月",
+		"十月",
+		"十一月",
+		"十二月"
+	};
+    for(i=0;i<12;i++)
+	{
+		printf("%s\n",month[i]);
+	}*/
+	
+	//使用指向指针的指针输出12个月
+	/*int i;
+	char **p;
+	char *month[]=
+	{
+		"一月",
+		"二月",
+		"三月",
+		"四月",
+		"五月",
+		"六月",
+		"七月",
+		"八月",
+		"九月",
+		"十月",
+		"十一月",
+		"十二月"
+	}; 
+	for(i=0;i<12;i++)
+	{
+		p=month+i;
+		printf("%s\n",*p); 
+	}*/
+	
+	//利用指向指针的指针输出一维数组的偶数元素，统计偶数元素的个数
+	/*int a[10],*p1,**p2,i,n=0;
+	printf("请输入一串随机数字：\n");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	p1=a;
+	p2=&p1;
+	printf("您输入的随机数字中偶数有:");
+	for(i=0;i<10;i++)
+	{
+		if(*(*p2+i)%2==0)
+		{
+			printf("%5d",*(*p2+i));
+			n++;
+		}
+	}
+	printf("\n");
+	printf("偶数个数有：%d个\n",n);*/
+	return 0;
+}
