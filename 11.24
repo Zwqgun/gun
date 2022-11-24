@@ -1,0 +1,78 @@
+#include<stdio.h>
+
+int main()
+{
+	//001打印Practice makes perfect!
+	//printf("Practice makes perfect!\n"); 
+	
+	//002打印大V
+	//printf("v     v\n");//多行输出 
+	//printf(" v   v\n");
+	//printf("   v\n");
+	//printf("v    v\n v  v\n  v\n");//单行输出
+	 
+	//003使用sizeof确定不同整型变量在内存中的大小
+	//printf("短整型变量在内存中的大小为：%d\n",sizeof(short));
+	//printf("整型变量在内存中的大小为：%d\n",sizeof(int));
+	//printf("长整型变量在内存中的大小为：%d\n",sizeof(long));
+	//printf("长长整型变量在内存中的大小为：%d\n",sizeof(long long));
+	
+	//004输出对应数值的八进制和十六进制
+	//printf("0%o,0%x%x",1234,1234); 
+	
+	//005输入100~999的数值，反向输出
+	//方法一 
+	//int a;
+	//printf("请随机输入一个100~999的数值：");
+	//scanf("%d",&a);
+	//while(a)
+	//{
+	//	printf("%d",a%10);
+	//	a/=10;
+	//}
+	//方法二
+	//int a,b,c,sum,number;
+	//a表示个位数，b表示十位数，c表示百位数 
+	//printf("请随机输入一个三位数：");
+	//scanf("%d",&number);
+	//c=number/100;
+	//b=number%100/10;
+	//a=number%10;
+	//sum=a*100+b*10+c*1 ;
+	//printf("%d",sum);
+	
+	//数组逆置法
+	//int a[3];
+	//int i;
+	//printf( "请随机输入一个三位数值：");
+	//for(i=0;i<3;i++)
+	//{
+	//scanf("%d",&a[i]);
+	//}
+	//for(i=0;i<3;i++)
+	//{
+	//	printf("初始数组为：%d\t",a[i]);
+	//}
+	//printf("\n"); 
+	//for(i=0;i<3;i++)
+	//{
+	//int temp=a[2];
+	//a[2]=a[0];
+	//a[0]=temp;
+	//}
+	//printf("逆置后的数组为：");
+	//for(i=0;i<3;i++)
+	//{
+	//	printf("%d",a[i]);
+	//}
+	
+	//006大小写转换
+	//int ch=0;
+	//循环数据输入 
+	//while((ch=getchar())!=EOF)
+	//{
+	//	printf("%c\n", (ch+32));
+    //    getchar();//处理多余的\n符号 
+	//} 
+	return 0;
+}
