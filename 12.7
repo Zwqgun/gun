@@ -1,0 +1,120 @@
+#include<stdio.h> 
+
+int main()
+{
+	//001打印小飞机
+	//printf("     **     \n");
+	//printf("    ****    \n");
+	//printf("************\n");
+	//printf("************\n");
+	//printf("    ****    \n");
+	//printf("     **     \n");
+	
+	//002十六进制转十进制
+	//printf("%15d\n", 0XABCDEF);
+	
+	//003printf函数的返回值
+	//方法一 
+	//int ret=printf("HELLO WORLD!");
+	//printf("\n",ret);
+	//printf("%d\n",ret);
+	//方法二
+	//printf("\n%d\n",printf("HELLO WORLD!")); 
+	
+	//004学生基本信息的输入输出
+	//方法一 
+	//int Name=0;
+	//int China=0;
+	//int Math=0;
+	//int English=0;
+	//printf("请依次输入学生的学号，语文成绩，数学成绩和英语成绩：");
+	//scanf("%d %d %d %d",&Name,&China,&Math,&English);
+	//printf("该学生的学号为：%d\n语文成绩为：%d\n数学成绩为：%d\n英语成绩为：%d\n",Name,China,Math,English); 
+	//方法二
+	//int array[4];
+	//int i;
+	//printf("请依次输入学生的学号，语文成绩，数学成绩和英语成绩：");
+	//for(i=0;i<4;i++)
+	//{
+	//	scanf("%d",&array[i]);
+	//}
+	//for(i=0;i<4;i++)
+	//{
+	//    printf("%d\t",array[i]);
+	//}
+	
+	//005判断字符
+	//int ch=0;
+	//printf("请输入任意指令：");
+	//scanf("%d",&ch);
+	//while((ch=getchar())!=EOF)
+	//{
+	//	if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z'))
+	//	{
+	//		printf("您输入的是一个字符\n");
+	//	}
+	//	else
+	//	{
+	//		printf("您输入的不是一个字符\n");
+	//	}getchar();
+	//} 
+	
+	//006字符金字塔
+	//方法一
+	//printf("    1    \n");
+	//printf("   111   \n");
+	//printf("  11111  \n");
+	//方法二
+	/*char a=0;
+	scanf("%c",&a);	
+	int i;
+	for(i=0;i<5;i++)
+	{
+	int j;
+	for(j=0;j<5-1-i;j++)
+	{
+	printf(" ");
+	}
+	for(j=0;j<=i;j++)
+	{
+	printf("%c ",a);
+	}
+	printf("\n");
+    }*/
+	
+	//007转换ASCII码
+	//char a[]={73, 32, 99, 97, 110, 32, 100, 111, 32, 105, 116 , 33};
+	//int i;
+	//for(i=0;i<sizeof(a)/sizeof(a[0]);i++)
+	//{
+	//	printf("%c\n",a[i]);
+	//} 
+	
+	//008出生日期的输入输出
+	/*int a,b,c;
+	printf("请输入您的出生日期：");
+	scanf("%4d %2d %2d",&a,&b,&c);
+	printf("year:%4d\n",a);
+	printf("month:%02d\n",b);//输出不够两位时，0替补 
+	printf("day:%02d\n",c);*/ //输出不够两位时，0替补 
+	
+	//009 2的n次方计算
+	int i=2;
+	while(scanf("%d",&i)!=EOF)
+	{
+		printf("%d\n",1<<i);
+	}
+	
+	//010按照格式输入并交换输出
+	/*int a=0;
+	int b=0;
+	printf("请随机输入两个值："); 
+	scanf("%d %d",&a,&b);
+	
+	int temp;
+	temp=a;
+	a=b;
+	b=temp;
+	printf("a=%d,b=%d\n",a,b);*/
+	return 0;
+}
