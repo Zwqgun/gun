@@ -1,0 +1,53 @@
+#include<stdio.h>
+
+int main()
+{
+	//001 小写字母转换为大写字母
+	/*char c1, c2, c3, c4;
+	c1 = getchar();
+	c2 = getchar();//输入时记得敲空格
+	c3 = c1 - 32;
+	c4 = getchar(c2) - 32;
+	putchar(c3);
+	putchar(c4);
+	printf("\n");*/
+
+	//002 指针输出先小后大的数值
+	/*int m, n, * p1, * p2, * temp;
+	p1 = &m;
+	p2 = &n;
+	printf("请分别输入m,n的数值：");
+	scanf("%d%d", &m, &n);
+	if (m > n)
+	p1 = &n, p2 = &m;
+	printf("m=%d,n=%d\n", *p1, *p2);*/
+
+	//003 整元换零钱问题
+	/*int yuan = 100;//一元等于100分钱
+	int a, b, c;//a为1分的个数，b为2分的个数，c为5分的个数
+	int sum=0;//方法总数
+	for (a = 0; a <=100; a++)
+    for (b = 0; b <=50; b++)
+    for (c = 0; c <=20; c++)
+		if (a * 1 + b * 2 + c * 5 == 100)
+	    {
+			sum++;		
+		}		
+	printf("共有%d种不同的换法\n", sum);*/
+
+	
+	//004 计算1！+2！+3！+...+10!的数值
+	/*int i;
+	int n;
+	int m = 1;
+	int sum = 0;
+	printf("请输入数字10:\n");
+	scanf("%d", &n);
+	for (i = 1; i <= 10; i++)
+	{
+		m = m * i;
+		sum = sum + m;
+	}
+	printf("1!+2!+3!+...+10!=%d\n", sum);*/
+	return 0;
+}
