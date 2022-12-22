@@ -1,0 +1,368 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<math.h>
+#define First 1//等差数列首项为1
+#define D 1//公差为1
+int main()
+{
+	//001 用ASCII码转换大小写
+	/*char a, b, c;
+	a = getchar() + 32;
+	b = getchar() + 32;
+	c = getchar() + 32;
+	putchar(a); 
+	putchar(b);
+	putchar(c);*/
+
+	//002 输出分段函数的值
+	//设此分段函数为y=2x-1,x>0; y=0,x=0; y=x+1,x<0
+	/*int x, y;
+	printf("请随机输入一个x的数值：");
+	scanf("%d", &x);
+	if (x > 0)
+	{
+		y = 2*x - 1;
+		printf("y=%d\n",y);
+	}
+	else if (x = 0)
+	{
+		y = 0;
+		printf("y=%d\n", y);
+	}
+	else if (x < 0)
+	{
+		y = x + 1;
+		printf("y=%d\n", y);
+	}*/
+
+	//003 输出100~200之间不能被3整除的数 
+	/*int i;
+	for (i=100; i <= 200; i++)
+	{
+		if (i % 3== 0)
+		continue;  
+		printf("100~200之间不能被3整除的数有：%d\n", i);
+	}*/
+	
+	//004 求n! 
+	/*int i, n;
+	int sum = 1;
+	printf("请输入你要计算的阶数：");
+	scanf("%d", &n);
+	if (n == 1)
+	{
+		sum = 1;
+		printf("%d的阶数为：%d!\n", n, sum);
+	}
+	else if (n > 1)
+	{
+		for (i = 1; i <= n; i++)
+			sum = sum * i;
+			printf("%d!的阶数为：%d\n", n, sum);
+	}*/
+
+	//005 打印100~1000之间所有的水仙花数
+	/*int i, sum;
+	for (i = 100; i < 1000; i++)
+	{
+		sum = (i / 100) * (i / 100) * (i / 100) + (i % 100 / 10) * (i % 100 / 10) * (i % 100 / 10) + (i % 100 % 10) * (i % 100 % 10) * (i % 100 % 10);
+		if (i == sum)
+		{
+			printf("水仙花数有%d\n", sum);
+		}
+	}*/
+
+	//006冒泡排序法
+	/*int i, j, temp;
+	int a[10];
+	printf("请随机输入10位数值：");
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("请选择排序方法：1为从小到大排序法，2为从大到小排序法\n");
+	while (1)
+	{
+	   char key = getchar();
+       switch (key)
+	   {
+	case '1':
+		for (i = 1; i < 10-1; i++)
+		{
+			for (j = 10 - 1; j >= i; j--)
+			{
+				if (a[j] < a[j - 1])
+				{
+				temp = a[j - 1];
+				a[j - 1] = a[j];
+				a[j] = temp;
+				}
+			}
+		}
+		for (i = 0; i < 10; i++)
+		{
+			printf("%d\t",a[i]);
+		}
+		printf("\n");
+		break;
+	case '2':
+		for (i = 0; i < 10-1; i++)
+		{
+			for (j = 0; j <10-i-1; j++)
+			{
+				if (a[j] < a[j + 1])
+				{
+                temp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = temp;
+			    }
+		    }
+				
+		}
+		for (i = 0; i < 10; i++)
+		{
+			printf("%d\t", a[i]);
+		}
+		break;
+	    }
+	}*/
+
+
+    //007 二位数组的行列调换,定义一个初始四阶矩阵
+    /*int i, j;
+	int a[4][4] =
+	{
+		{1,   2,  3,  4},
+		{5,   6,  7,  8},
+		{9,  10, 11, 12},
+		{13, 14, 15, 16}
+	};
+	int b[4][4] = {0};
+	for (j = 0; j < 4; j++)
+	{
+		for (i = 0; i < 4; i++)
+		{
+			b[j][i] = a[i][j];
+		}
+	}
+	for (i = 0; i < 4; i++)
+	{
+		for (j = 0; j < 4; j++)
+		{
+			printf("%d ", b[i][j]);
+		}
+		printf("\n");
+	}*/
+
+    //008 打擂台法求二维数组的最大值
+    /*int i, j;
+	int a[3][3];
+	int max = a[0][0];
+	printf("请输入一个3*3的二维数组：");
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			scanf("%d", &a[i][j]);
+		}
+	}
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (a[i][j] > max)
+			{ 
+				max = a[i][j];
+			}	
+		}	
+	}
+	printf("该二维数组中的最大值为：%d\n", max);
+	system("pause");*/
+ 
+    //009 两个数求最大值
+    /*int a, b;
+	printf("请随机输入两个数值：");
+	scanf("%d %d",&a,&b);
+	printf("两者中最大值为:%d\n", Max(a, b));*/
+
+    //010 递归求等差数列的前n项和 默认公差为1
+    /*int f(int n);
+	int n;
+	int sum;
+	printf("请输入要求的等差数列的前n项和：");
+	scanf("%d", &n);
+	sum = f(n);
+	printf("等差数列的前%d项和为：%d\n", n, sum);*/
+	
+    //011 简单计算器
+    /*int a, b;
+	printf("请选择运算法则：\n");
+	printf(" 1.加法  2.减法 \n");
+	printf(" 3.乘法  4.除法 \n");
+	while (1)
+	{
+		
+		char key = getchar();
+		switch (key)
+		{
+		case '1':
+			printf("请输入要计算的两个数值：");
+			scanf("%d %d", &a, &b);
+			printf("两数相加等于：%d\n", jia(a, b));
+			break;
+		case '2':
+			printf("请输入要计算的两个数值：");
+			scanf("%d %d", &a, &b);
+			printf("两数相减等于：%d\n", jian(a, b));
+			break;
+		case '3':
+			printf("请输入要计算的两个数值：");
+			scanf("%d %d", &a, &b);
+			printf("两数相乘等于：%d\n", cheng(a, b));
+			break;
+		case '4':
+			printf("请输入要计算的两个数值：");
+			scanf("%d %d", &a, &b);
+			printf("两数相除等于：%d\n", chu(a, b));
+			break;
+		}
+	}*/
+
+    //012 常规法先大后小输出a,b的值
+    /*int a, b;
+	printf("请随机输入两个数值：");
+	scanf("%d %d", &a, &b);
+	if (a > b)
+	{
+		printf("a=%d,b=%d\n", a, b);
+	}
+	else
+	{
+		printf("a=%d,b=%d\n", b, a);
+	}*/
+
+    //013 指针方法按先大后小输出a,b值
+    /*int a, b, * p1, * p2;
+	printf("请随机输入两个数值：");
+	scanf("%d %d", &a, &b);
+	p1 = &a;
+	p2 = &b;
+	if (a < b)
+	{
+		p1 = &b;
+		p2 = &a;
+		printf("n=%d,m=%d\n", *p1, *p2);
+	}*/
+
+    //014 输入一串字符串，分别统计其中的大写字母，小写字母，空格，数字和其他字符的个数
+    /*char str = getchar();
+	int A, a, kg, number, other;
+	A = 0;
+	a = 0;
+	kg = 0;
+	number = 0;
+	other = 0;
+	while (str!='\n')
+	{
+		str = getchar();
+		if (str <= 'Z' && str >= 'A')
+		{
+			A++;	
+		}
+		else if (str <= 'z' && str >= 'a')
+		{
+			a++;
+		}
+		else if (str == ' ')
+		{
+			kg++;
+		}
+		else if (str >= '0' && str <= '9')
+		{
+			number++;
+		}
+		else
+		{
+			other++;
+		}
+	}
+	printf("大写字母有%d个\n", A);
+	printf("小写字母有%d个\n", a);
+	printf("空格有%d个\n", kg);
+	printf("数字有%d个\n", number);
+	printf("其他字符有%d个\n", other);*/
+
+    //015 两个字符串的传递
+    /*char a[100] = {"I am a student"};
+	char b[100];
+	int i;
+	for (i = 0; a[i] != '\0'; i++)
+	{
+		b[i] = a[i];
+    }
+	b[i] = '\0';
+    printf("a的字符串数组为：%s\n",a);
+	printf("b的字符串数组为：");
+	puts(b);*/
+	
+    //016 定义动物的结构体
+    /*struct animal
+    {
+		int number;
+		char name[20];
+		char gender[20];
+		char color[20];
+		int money;
+	}Animal;
+	printf("请分别输入该动物的编号，名称，性别，颜色，价格：");
+	scanf("%d%s%s%s%d", &Animal.number, Animal.name, Animal.gender, Animal.color, &Animal.money);
+	printf("该动物的编号为：%d\n", Animal.number);
+	printf("        名称为：%s\n", Animal.name);
+	printf("        性别为：%s\n", Animal.gender);
+	printf("        颜色为：%s\n", Animal.color);
+	printf("        价格为：%d\n", Animal.money);*/
+	return 0;
+}
+
+//int Max(int x,int y);
+//int Max(int x,int y)
+//{
+//	return(x > y ? x:y);
+//}
+//int jia(int x, int y);
+//int jia(int x, int y)
+//{
+//	return(x + y);
+//}
+//int jian(int x, int y);
+//int jian(int x, int y)
+//{
+//	return(x - y);
+//int cheng(int x, int y);
+//int cheng(int x, int y)
+//{
+//	return(x * y);
+//}
+//int chu(int x, int y);
+//int chu(int x, int y)
+//{
+//	return(x / y);
+//}
+/*int f(int n)
+{
+	int m;
+	if (n <= 0)
+	{
+		printf("错误！请输入一个正整数值！\n");
+	}
+	else if (n == 1)
+	{
+		m = First;
+	}
+	else
+	{
+		m = f(n - 1) + n;
+	}
+	return (m);
+}*/
